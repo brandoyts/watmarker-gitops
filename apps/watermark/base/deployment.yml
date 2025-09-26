@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: watermark
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: watermark
+  template:
+    metadata:
+      name: watermark
+      labels:
+        app: watermark
+    spec:
+      containers:
+        - name: watermark
+          image: doyts/watmarker-watermark
+          ports:
+            - containerPort: 6000

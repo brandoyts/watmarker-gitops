@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: watermark
+spec:
+  type: ClusterIP
+  selector:
+    app: watermark
+  ports:
+    - port: 6000
+      targetPort: 6000
