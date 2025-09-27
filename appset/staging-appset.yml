@@ -30,6 +30,7 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{index .path.segments 1}}-{{index .path.segments 3}}"
+        # namespace: default
 
       syncPolicy:
         automated:
