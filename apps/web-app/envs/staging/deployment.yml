@@ -10,4 +10,4 @@ spec:
         - name: web-app
           env:
             - name: API_BASE_URL
-              value: http://api-gateway:8080
+              value: http://api-gateway.api-gateway-staging.svc.cluster.local:8080
