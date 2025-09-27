@@ -20,7 +20,7 @@ spec:
       # The project the application belongs to.
       project: default
 
-      # Source of the application manifests
+      # Source of the application manifestsf
       source:
         repoURL: https://github.com/brandoyts/watmarker-gitops.git
         targetRevision: HEAD
