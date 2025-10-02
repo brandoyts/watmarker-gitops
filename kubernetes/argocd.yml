@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/brandoyts/watmarker-gitops.git
     targetRevision: HEAD
-    path: appsets
+    path: kubernetes/application-set
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
