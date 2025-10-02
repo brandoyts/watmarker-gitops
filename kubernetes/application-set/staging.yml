@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/brandoyts/watmarker-gitops.git
         revision: HEAD
         directories:
-          - path: application/*/environment/staging
+          - path: kubernetes/application/*/environment/staging
   template:
     metadata:
       # The name of the generated Argo CD Application
