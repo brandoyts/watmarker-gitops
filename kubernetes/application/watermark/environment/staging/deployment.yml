@@ -6,4 +6,8 @@ spec:
   template:
     spec:
       containers:
-        - name: watermark
+        env:
+          - name: APP_ENV
+            value: staging
+          - name: APP_PORT
+            value: 6000
