@@ -10,3 +10,5 @@ spec:
           env:
             - name: APP_ENV
               value: staging
+            - name: APP_PORT
+              value: 6000
