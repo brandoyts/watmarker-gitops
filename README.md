@@ -38,7 +38,7 @@ This structure makes it easy to scale environments, enforce consistent deploymen
 
 **To be done:**
 
-- Add `infrastructure/` folder with Terraform code for cluster provisioning
+- Add `infrastructure/` folder with Terraform for cluster provisioning
 - Integrate **Secrets Manager** (e.g., SealedSecrets or SOPS) for better secret handling
 - Expand support for **multi-region** or **multi-cluster** deployments
 - Add monitoring stack (**Prometheus + Grafana**) integration
