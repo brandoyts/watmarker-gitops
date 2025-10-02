@@ -33,3 +33,13 @@ This structure makes it easy to scale environments, enforce consistent deploymen
 > 💡 **Note:** The `infrastructure/` folder is **under development**. It will contain **Terraform** code to provision the necessary cloud infrastructure (e.g., VPC, nodes, networking) to run the Kubernetes cluster in a fully automated way.
 
 ---
+
+## 🛠️ Planned Improvements
+
+**To be done:**
+
+- Add `infrastructure/` folder with Terraform code for cluster provisioning
+- Integrate **Secrets Manager** (e.g., SealedSecrets or SOPS) for better secret handling
+- Expand support for **multi-region** or **multi-cluster** deployments
+- Add monitoring stack (**Prometheus + Grafana**) integration
+- Add **Ingress networking** to expose the web app service to the public
