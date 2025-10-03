@@ -4,6 +4,8 @@ This repository contains GitOps configurations for deploying the **Watmarker** a
 
 ![ArgoCD Deployment](https://github.com/brandoyts/watmarker-gitops/raw/master/diagrams/argocd.png "argocd deployment")
 
+![App Sample](https://github.com/brandoyts/watmarker-gitops/raw/master/diagrams/app-sample "app sample")
+
 ---
 
 ## 🧠 Architecture Overview
