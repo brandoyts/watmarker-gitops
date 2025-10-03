@@ -12,7 +12,7 @@ spec:
         revision: HEAD
         directories:
           - path: kubernetes/application/*/environment/
-          - path: kubernetes/network/environment/staging
+          - path: kubernetes/network/ingress/environment/staging
   template:
     metadata:
       # The name of the generated Argo CD Application
