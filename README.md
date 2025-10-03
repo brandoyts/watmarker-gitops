@@ -2,9 +2,9 @@
 
 This repository contains GitOps configurations for deploying the **Watmarker** application using [ArgoCD](https://argo-cd.readthedocs.io/). It automates application delivery by continuously syncing Kubernetes manifests from this Git repository to your cluster.
 
-![ArgoCD Deployment](https://github.com/brandoyts/watmarker-gitops/raw/master/diagrams/argocd.png "argocd deployment")
+![ArgoCD Deployment](https://github.com/brandoyts/watmarker-gitops/raw/master/assets/argocd.png "argocd deployment")
 
-![App Sample](https://github.com/brandoyts/watmarker-gitops/raw/master/diagrams/app-sample.gif "app sample")
+![App Sample](https://github.com/brandoyts/watmarker-gitops/raw/master/assets/app-sample.gif "app sample")
 
 ---
 
