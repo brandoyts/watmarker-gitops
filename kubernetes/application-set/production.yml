@@ -12,6 +12,7 @@ spec:
         revision: HEAD
         directories:
           - path: kubernetes/application/*/environment/production
+          - path: kubernetes/network/environment/production
   template:
     metadata:
       # The name of the generated Argo CD Application
