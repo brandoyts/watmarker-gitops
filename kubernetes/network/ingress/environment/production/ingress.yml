@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: watmarker.com
+    - host: watmarker.malaysiawest.cloudapp.azure.com
       http:
         paths:
           - path: /
