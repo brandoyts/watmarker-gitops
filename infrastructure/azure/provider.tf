@@ -26,3 +26,6 @@ provider "azurerm" {
     }
   }
 }
+provider "azuread" {
+
+}
