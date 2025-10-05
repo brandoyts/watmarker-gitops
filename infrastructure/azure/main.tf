@@ -14,7 +14,8 @@ module "ServicePrincipal" {
 }
 
 resource "azurerm_role_assignment" "rolespn" {
-  scope                = "/subscriptions/${var.subscription_id}"
+  # scope                = "/subscriptions/${var.subscription_id}"
+  scope                = module.keyvault.keyvault_id
   role_definition_name = "Key Vault Secrets Officer"
   principal_id         = module.ServicePrincipal.service_principal_object_id
 
