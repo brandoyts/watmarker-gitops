@@ -2,7 +2,7 @@
 infrastructure/*/*.tfstate
 
 *.tfstate.*
-
+*.tfplan
 *.override.tf
 *.override.tf.json
 
@@ -14,6 +14,8 @@ infrastructure/*/*.tfstate
 # Ignore sensitive variable files
 */*/*.tfvars
 *.tfvars.json
+
+kubeconfig
 
 
 .env

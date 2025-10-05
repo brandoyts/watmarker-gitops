@@ -5,17 +5,13 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "4.47.0"
     }
-    azuread = {
-      source  = "hashicorp/azuread"
-      version = "~> 3.1.0"
-    }
   }
-  cloud {
-    organization = "brandoyts"
-    workspaces {
-      name = "watmarker-gitops"
-    }
-  }
+  # cloud {
+  #   organization = "brandoyts"
+  #   workspaces {
+  #     name = "watmarker-gitops"
+  #   }
+  # }
 }
 
 provider "azurerm" {
@@ -25,7 +21,4 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = false
     }
   }
-}
-provider "azuread" {
-
 }
