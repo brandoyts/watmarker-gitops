@@ -1,14 +1,13 @@
 # Watmarker GitOps
 
-This repository contains GitOps configurations for deploying the **Watmarker** application using [ArgoCD](https://argo-cd.readthedocs.io/). It automates application delivery by continuously syncing Kubernetes manifests from this Git repository to your cluster.
-
-![ArgoCD Deployment](https://github.com/brandoyts/watmarker-gitops/raw/master/assets/argocd.png "argocd deployment")
-
-![App Sample](https://github.com/brandoyts/watmarker-gitops/raw/master/assets/app-sample.gif "app sample")
+This repository contains GitOps configurations for deploying the **Watmarker** application using [ArgoCD](https://argo-cd.readthedocs.io/).  
+It automates both **infrastructure** and **application delivery** by continuously syncing Terraform and Kubernetes manifests from this Git repository to kubernetes cluster.
 
 ---
 
 ## 🧠 Architecture Overview
+
+<img src="./assets/argocd.png" width="600"/>
 
 This project follows the **App of Apps** pattern in ArgoCD. A root application (`watmarker`) manages two environment-specific **ApplicationSets**:
 
@@ -25,14 +24,21 @@ This structure makes it easy to scale environments, enforce consistent deploymen
 
 ---
 
-## 📋 Prerequisites
+## ☁️ GitOps + Infrastructure Flow
 
-- A running **Kubernetes cluster**
-- `kubectl` installed and configured
-- [ArgoCD](https://argo-cd.readthedocs.io/) installed on your cluster
-- [Git](https://git-scm.com/) installed locally
+<img src="./assets/architecture-overview.png" width="600"/>
 
-> 💡 **Note:** The `infrastructure/` folder is **under development**. It will contain **Terraform** code to provision the necessary cloud infrastructure (e.g., VPC, nodes, networking) to run the Kubernetes cluster in a fully automated way.
+The infrastructure layer is managed using **Terraform** and deployed on **Azure**:
+
+- **AKS (Azure Kubernetes Service)** runs the Watmarker workloads
+- **Azure Key Vault** stores and manages application secrets securely
+
+**Workflow:**
+
+1. Developer commits configuration or infrastructure changes to Git
+2. Terraform provisions or updates the Azure infrastructure
+3. ArgoCD syncs manifests to the AKS cluster
+4. The cluster stays continuously aligned with the desired Git state
 
 ---
 
@@ -40,8 +46,7 @@ This structure makes it easy to scale environments, enforce consistent deploymen
 
 **To be done:**
 
-- Add `infrastructure/` folder with Terraform for cluster provisioning
-- Integrate **Secrets Manager** (e.g., SealedSecrets or SOPS) for better secret handling
-- Expand support for **multi-region** or **multi-cluster** deployments
-- Add monitoring stack (**Prometheus + Grafana**) integration
-- Add **Ingress networking** to expose the web app service to the public
+- ✅ Add `infrastructure/` folder with Terraform for cluster provisioning
+- [ ] Integrate **Secrets Manager** (e.g., SealedSecrets or SOPS) for better secret handling
+- [ ] Add monitoring stack (**Prometheus + Grafana**) integration
+- ✅ Add **Ingress networking** to expose the web app service to the public
