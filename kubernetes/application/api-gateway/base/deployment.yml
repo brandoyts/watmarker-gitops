@@ -21,4 +21,4 @@ spec:
               containerPort: 8080
           env:
             - name: TRACE_BACKEND_ENDPOINT
-              value: tempo-distributor.monitoring.svc.cluster.local:4318
+              value: tempo.monitoring.svc.cluster.local:4318
