@@ -17,4 +17,8 @@ spec:
         - name: api-gateway
           image: doyts/watmarker-api-gateway
           ports:
-            - containerPort: 8080
+            - name: http
+              containerPort: 8080
+          env:
+            - name: TRACE_BACKEND_ENDPOINT
+              value: "tempo.monitoring.svc.cluster.local:3200"

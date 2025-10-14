@@ -1,0 +1,33 @@
+prometheus:
+  prometheusSpec:
+    scrapeInterval: 10s
+
+grafana:
+  adminUser: admin
+  adminPassword: admin
+  additionalDataSources:
+    - name: Tempo
+      type: tempo
+      access: proxy
+      url: http://tempo.monitoring.svc.cluster.local:3200
+      isDefault: false
+      jsonData:
+        httpMethod: GET
+        serviceMap:
+          datasourceUid: prometheus
+        tracesToLogs:
+          datasourceUid: loki
+          spanStartTimeShift: "1h"
+          spanEndTimeShift: "1h"
+          tags:
+            - job
+            - instance
+            - pod
+            - namespace
+        tracesToMetrics:
+          datasourceUid: prometheus
+          tags:
+            - service.name
+          queries:
+            - name: "Sample Query"
+              query: 'sum(rate(http_server_duration_seconds_count{service_name="$__trace.service.name"}[5m]))'

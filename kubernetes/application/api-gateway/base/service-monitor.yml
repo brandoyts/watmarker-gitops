@@ -1,0 +1,12 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: api-gateway-service-monitor
+  labels:
+    release: kube-prometheus-stack
+spec:
+  endpoints:
+    - port: http
+  selector:
+    matchLabels:
+      app: api-gateway
