@@ -48,5 +48,5 @@ The infrastructure layer is managed using **Terraform** and deployed on **Azure*
 
 - ✅ Add `infrastructure/` folder with Terraform for cluster provisioning
 - [ ] Integrate **Secrets Manager** (e.g., SealedSecrets or SOPS) for better secret handling
-- [ ] Add monitoring stack (**Prometheus + Grafana**) integration
+- ✅ Add monitoring stack (**Prometheus + Grafana**) integration
 - ✅ Add **Ingress networking** to expose the web app service to the public
