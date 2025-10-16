@@ -19,7 +19,7 @@ spec:
               repoURL: https://github.com/brandoyts/watmarker-gitops.git
               revision: HEAD
               directories:
-                - path: kubernetes/application/*/environment/{{environment}}
+                - path: "kubernetes/application/*/environment/{{.environment}}"
   template:
     metadata:
       name: "{{index .path.segments 2}}-{{index .path.segments 4}}"
