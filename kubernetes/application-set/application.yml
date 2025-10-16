@@ -30,7 +30,7 @@ spec:
         targetRevision: HEAD
         path: "{{.path.path}}"
       destination:
-        server: "{{url}}"
+        server: "{{.url}}"
         namespace: "{{index .path.segments 4}}"
       syncPolicy:
         automated:
