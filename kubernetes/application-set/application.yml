@@ -7,17 +7,19 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - list:
-        elements:
-          - environment: staging
-            url: https://kubernetes.default.svc
-          - environment: production
-            url: https://kubernetes.default.svc
-    - git:
-        repoURL: https://github.com/brandoyts/watmarker-gitops.git
-        revision: HEAD
-        directories:
-          - path: kubernetes/application/*/environment/{{environment}}
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - environment: staging
+                  url: https://kubernetes.default.svc
+                - environment: production
+                  url: https://kubernetes.default.svc
+          - git:
+              repoURL: https://github.com/brandoyts/watmarker-gitops.git
+              revision: HEAD
+              directories:
+                - path: kubernetes/application/*/environment/{{environment}}
   template:
     metadata:
       name: "{{index .path.segments 2}}-{{index .path.segments 4}}"
