@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: monitoring-appset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - environment: staging
+            url: https://kubernetes.default.svc
+            namespace: monitoring
+  template:
+    metadata:
+      name: monitoring
+    spec:
+      project: default
+      sources:
+        - repoURL: https://prometheus-community.github.io/helm-charts
+          targetRevision: 78.3.0
+          chart: prometheus-community/kube-prometheus-stack
+          helm:
+            releaseName: kube-prometheus-stack
+            valuesFiles:
+              - $values/kubernetes/infrastructure/monitoring/kube-prometheus-stack/environment/{{environment}}
+        - repoURL: https://grafana.github.io/helm-charts
+          targetRevision: 78.3.0
+          chart: grafana/tempo
+          helm:
+            releaseName: tempo
+            valuesFiles:
+              - $values/kubernetes/infrastructure/monitoring/tempo/environment/{{environment}}
+        - repoURL: https://github.com/brandoyts/watmarker-gitops.git
+          targetRevision: HEAD
+          ref: values
+      destination:
+        server: "{{url}}"
+        namespace: "{{namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
