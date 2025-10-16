@@ -17,14 +17,14 @@ spec:
       project: default
       sources:
         - repoURL: https://prometheus-community.github.io/helm-charts
-          # targetRevision: 78.2.1
+          targetRevision: 78.3.0
           chart: prometheus-community/kube-prometheus-stack
           helm:
             releaseName: kube-prometheus-stack
             valuesFiles:
               - $values/kubernetes/infrastructure/monitoring/kube-prometheus-stack/environment/{{environment}}
         - repoURL: https://grafana.github.io/helm-charts
-          # targetRevision: 1.22.3
+          targetRevision: 1.23.3
           chart: grafana/tempo
           helm:
             releaseName: tempo
