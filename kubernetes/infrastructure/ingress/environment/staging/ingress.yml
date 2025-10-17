@@ -10,7 +10,7 @@ spec:
     - host: app.local
       http:
         paths:
-          - path: /staging
+          - path: /
             pathType: Prefix
             backend:
               service:
