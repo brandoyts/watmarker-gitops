@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# kubectl -n staging create secret generic watermark-secret --from-env-file=../.env.watermark && 
-kubectl -n production create secret generic watermark-secret --from-env-file=../.env.watermark
+kubectl create namespace staging && kubectl create namespace production
 
-# kubectl -n default create secret generic watermark-secret --from-env-file=../.env.watermark
+kubectl -n staging create secret generic watermark-secret --from-env-file=../.env.watermark && \
+kubectl -n production create secret generic watermark-secret --from-env-file=../.env.watermark
