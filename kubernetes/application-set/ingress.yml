@@ -24,7 +24,7 @@ spec:
           chart: ingress-nginx
       destination:
         server: "{{url}}"
-        namespace: "{{namespace}}"
+        namespace: "{{environment}}"
       syncPolicy:
         automated:
           prune: true
