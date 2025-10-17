@@ -9,7 +9,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /staging
+          - path: /
             pathType: Prefix
             backend:
               service:
